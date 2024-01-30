@@ -19,11 +19,3 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
-
-<Directory "/www/docs">
-    AuthType Basic
-    AuthName Documents
-    AuthBasicProvider file
-    AuthUserFile "/usr/local/apache/passwd/passwords"
-    Require valid-user
-</Directory>
