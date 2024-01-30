@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->integer('#');
             $table->string('title');
-            $table->integer('artist');
-            $table->integer('contributing_artist')
+            $table->string('artist');
+            $table->string('contributing_artist')
                   ->nullable($value = true);
             $table->string('type');
-            $table->integer('album');
+            $table->string('album');
             $table->integer('year');
             $table->string('genre');
             $table->integer('length');
