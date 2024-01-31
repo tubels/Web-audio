@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MusicController;
+use App\Models\Music;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,4 +16,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/', MusicController::class);
+Route::get('/', [MusicController::class, 'index'])->name('music.index');
+Route::get('/{$id}', [MusicController::class, 'show'])->name('music.show');

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Music;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MusicController extends Controller
 {
@@ -11,7 +13,9 @@ class MusicController extends Controller
      */
     public function index()
     {
-        return view('index');
+        return view('index', [
+            'music' => Music::orderBy('album', 'desc')->get()
+        ]);
     }
 
     /**
@@ -19,7 +23,7 @@ class MusicController extends Controller
      */
     public function create()
     {
-        //
+        return view('upload');
     }
 
     /**
@@ -35,7 +39,9 @@ class MusicController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('show', [
+            'posts' => Music::findOrFail($id)
+        ]);
     }
 
     /**
@@ -43,7 +49,7 @@ class MusicController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('edit');
     }
 
     /**
