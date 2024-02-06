@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Music;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class MusicController extends Controller
 {
@@ -31,7 +30,9 @@ class MusicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $path = $request->file('file_upload')->store('Audio', 'public');
+ 
+        return $path;
     }
 
     /**
@@ -40,7 +41,7 @@ class MusicController extends Controller
     public function show(string $id)
     {
         return view('show', [
-            'posts' => Music::findOrFail($id)
+            'music' => Music::findOrFail($id)
         ]);
     }
 

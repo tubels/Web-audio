@@ -8,10 +8,12 @@
 </head>
 <body>
     <h1>Spooftify</h1>
+    <a href="{{ route('music.create') }}">Upload a song</a>
 
     @foreach ($music as $song)
-    <p>{{ $song->title }}</p>
-    <a href={{ route('music.show', $song->id) }}>look!</a>
+    <p>{{ $song->title }}
+        <a href={{ route('music.show', $song->id) }}>look!</a>
+    </p>
     @endforeach 
 </body>
 </html>

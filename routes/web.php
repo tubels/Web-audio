@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\MusicController;
-use App\Models\Music;
 use Illuminate\Support\Facades\Route;
 
 
@@ -17,4 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [MusicController::class, 'index'])->name('music.index');
-Route::get('/{$id}', [MusicController::class, 'show'])->name('music.show');
+Route::get('/show/{id}', [MusicController::class, 'show'])->name('music.show');
+
+Route::get('/upload', [MusicController::class, 'create'])->name('music.create');
+Route::post('/store', [MusicController::class, 'store'])->name('music.store');
